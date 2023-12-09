@@ -14,14 +14,5 @@
 
 function inorderTraversal(root: TreeNode | null): number[] {
     if (!root) return [];
-    let leftList: number[] = [];
-    let rightList: number[] = [];
-    if (root.left != null) {
-        leftList = inorderTraversal(root.left);
-    }
-    if (root.right != null) {
-        rightList = inorderTraversal(root.right);
-    }
-    let resultList: number[] = [...leftList, root.val, ...rightList];
-    return resultList;
+    return [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)];
 };
